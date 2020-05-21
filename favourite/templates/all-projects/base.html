@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  {% if title %}
+  <title>Alex Portfolio - {{title}}</title>
+  {% else %}
+    <title> Alex Portfolio </title>
+  {% endif %}
+
+</head>
+<body>
+    {% block content %} <h1>project list</h1> {%endblock%}
+</body>
+</html>
