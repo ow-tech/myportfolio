@@ -2,6 +2,6 @@ from django.shortcuts import render
 
 
 # Create your views here.
-def index(request):
+def home(request):
     title ="list"
-    return render( request,"all-projects/list.html",{"title":title,})
+    return render( request,"all-projects/home.html",{"title":title,})

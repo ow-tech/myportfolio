@@ -1,0 +1,33 @@
+{% extends 'all-projects/base.html' %}
+{% load static %}
+{% block content %}
+{{block.super}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="jumbotron" >
+                <div class='profile'>
+                    <img src="{% static 'images/profilep.jpeg' %}">
+                    <span>
+                        <h4>Alex Mulwa Barasa </h4>
+                        <p>Software Engineer</p>
+                        <hr>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+        <div class ="col-md-8">
+            <div class="jumbotron" >
+                <hr>
+                <P>Troding from HTML to Python Frameworks is a huge achievement that I owe to the Most High.
+                    Begining with the first step of being given a chance to learn software Development at Moringa School, the Journey has not been easy but one that
+                    I can exhault myself to have made it through. Software development has grown its roots in me, and each day I find adventure in Imporoving my 
+                    software development skills.
+                </P>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
