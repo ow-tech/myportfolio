@@ -1,7 +1,11 @@
 from django.shortcuts import render
 
 
-# Create your views here.
+
 def home(request):
-    title ="list"
+    title ="Home"
     return render( request,"all-projects/home.html",{"title":title,})
+
+def about(request):
+    title ="About"
+    return render( request,"all-projects/about.html",{"title":title,})

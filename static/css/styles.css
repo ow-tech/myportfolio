@@ -60,3 +60,19 @@ nav ul li a{
     font-family: 'Merriweather', serif;
 
 }
+.fab {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+  
+.fab:hover {
+    opacity: 0.7;
+}
+.img img{
+    height:100px;
+    width:auto;
+    padding:10px;
+}
