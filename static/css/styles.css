@@ -71,6 +71,12 @@ nav ul li a{
 .fab:hover {
     opacity: 0.7;
 }
+/* .img{
+    position: relative;
+
+} */
+
+
 .img img{
     height:100px;
     width:auto;

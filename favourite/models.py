@@ -3,7 +3,6 @@ from django.db import models
 
 class Projects(models.Model):
     project_name = models.CharField(max_length=50)
-    # project_image = models.ImageField(upload_to='', default='image to project')
     project_disc =models.TextField()
 
 
@@ -12,11 +11,11 @@ class Projects(models.Model):
         return self.project_name 
 
 
-class Project(models.Model):
-    # project_images = models.ImageField(upload_to='', default='image to project')
+class project_disc(models.Model):
+    project = models.ForeignKey(Projects)
     project_fdisc = models.TextField()
-    project_github_link = models.CharField(max_length=10000)
-    project_deployed_link = models.CharField(max_length=10000)
+    project_github_link = models.URLField(max_length=10000)
+    project_deployed_link = models.URLField(max_length=10000)
     projects = models.ForeignKey('Projects', on_delete=models.DO_NOTHING)
 
 
