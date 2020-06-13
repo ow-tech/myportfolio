@@ -13,7 +13,7 @@ class Projects(models.Model):
         return self.project_name 
 
 
-class project_disc(models.Model):
+class Project_disc(models.Model):
     project_fdisc = models.TextField()
     project_github_link = models.URLField(max_length=1000000)
     project_deployed_link = models.URLField(max_length=1000000)

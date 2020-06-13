@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Projects, Project_disc
+
+admin.site.register(Projects)
+admin.site.register(Project_disc)
