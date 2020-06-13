@@ -21,10 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'uarf@x&2i*04a@1=gw)4ra=o8ye_xzw#2m%(pzgep(k9=(pmh('
+SECRET_KEY =os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG =os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -132,7 +132,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 cloudinary.config( 
-  cloud_name = "sample", 
-  api_key = "874837483274837", 
-  api_secret = "a676b67565c6767a6767d6767f676fe1" 
+  cloud_name = os.environ.get("CLOUD_NAME"), 
+  api_key = os.environ.get("API_KEY"), 
+  api_secret = os.environ.get("API_SECRET") 
 )
