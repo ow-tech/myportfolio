@@ -12,8 +12,12 @@ def about(request):
 
 def portfolio(request):
     projects = Projects.objects.all()
+    context = {
+        'projects':projects,
+        'titile':portfolio
+    }
     title ="Portfolio"
-    return render (request, 'all-projects/portfolio.html', {'title':title})
+    return render (request, 'all-projects/portfolio.html', context)
 
 def details(request, id):
     projects = get_object_or_404(Projects, id=id)
@@ -24,3 +28,8 @@ def details(request, id):
         "title":detail
     }
     return render (request, 'all-projects/detail.html', context)
+
+def contact(request):
+    projects = Projects.objects.all()
+    title ="Portfolio"
+    return render (request, 'all-projects/portfolio.html', {'title':title})
