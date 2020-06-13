@@ -15,7 +15,7 @@ def portfolio(request):
     title ="Portfolio"
     return render (request, 'all-projects/portfolio.html', {'title':title})
 
-def detail(request, id):
+def details(request, id):
     projects = get_object_or_404(Projects, id=id)
     project_disc = Project_disc.objects.filter(projects=projects)
     context = {

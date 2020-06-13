@@ -1,0 +1,38 @@
+{%extends 'all-projects/base.html'%}
+
+{% block content %}
+{{block.super}}
+<div class="row row-cols-1 row-cols-md-2">
+    {% for project in projects %}
+    <div class="col mb-4">
+      <!-- Card -->
+      <div class="card">
+  
+        <!--Card image-->
+        <div class="view overlay">
+          <img class="card-img-top" src="{project.project_front_image.url}"
+            alt="Card image cap">
+          <a href="#!">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+  
+        <!--Card content-->
+        <div class="card-body">
+  
+          <!--Title-->
+          <h4 class="card-title">{{project.project_name}}</h4>
+          <!--Text-->
+          <p class="card-text">{{project.project_idea}}</p>
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <a  href="{% url'details' project.id %}"class='btn btn-primary btn-md'>Voiew More</a>
+          <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+  
+        </div>
+  
+      </div>
+      </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
