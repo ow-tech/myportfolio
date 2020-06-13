@@ -22,12 +22,13 @@ def portfolio(request):
 def details(request, id):
     projects = get_object_or_404(Projects, id=id)
     project_disc = Project_disc.objects.filter(projects=projects)
+    title ="details"
     context = {
         "projects":projects,
         "project_disc":project_disc,
-        "title":detail
+        "title":title
     }
-    return render (request, 'all-projects/detail.html', context)
+    return render (request, 'all-projects/details.html', context)
 
 def contact(request):
     projects = Projects.objects.all()
