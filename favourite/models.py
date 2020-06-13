@@ -12,7 +12,7 @@ class Projects(models.Model):
 
 
     def __str__(self):
-        return self.project_name 
+        return '{},{}'.format(self.project_name, self.project_idea)
 
 
 class Project_disc(models.Model):
