@@ -1,5 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Project_disc, Projects
+from django.core.mail import send_mail
+from django.conf import settings
+from .forms import ContactForm
 
 
 def home(request):
@@ -34,4 +37,4 @@ def details(request, id):
 def contact(request):
     projects = Projects.objects.all()
     title ="Portfolio"
-    return render (request, 'all-projects/portfolio.html', {'title':title})
+    return render (request, 'all-projects/contact.html', {'title':title})
