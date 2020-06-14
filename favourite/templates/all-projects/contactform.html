@@ -3,12 +3,28 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <div class='container'>
-    <div>
-        <form  action="{%url 'contact'%}" method="post">
-            {%csrf_token%}
-            {{ form|crispy }}
-            <input type="submit" value="">
-          </form>
+    <div class="row">
+        <div class='col-md-5'>
+            <div class='jumbotron'>
+                <h5>Get In Touch</h5>
+                <hr>
+                <p>If you have any concern or want to work with me, please feel free to contact me by leaving a message here. Or reaching out to me through:</p>
+                <br>
+                <i class="fas fa-mobile-alt">+254748447093</i>
+                <br>
+                <i class="fas fa-envelope"> alexbarasa0723@gmail.com</i>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class=jumbotron>
+                <form>
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <input type="submit" value="Send">
+                </form>
+            </div>
+        </div>
     </div>
+
 </div>
 {% endblock %}

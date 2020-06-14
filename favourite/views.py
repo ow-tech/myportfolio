@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Project_disc, Projects
-from django.core.mail import send_mail
+from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
 from .forms import ContactForm
+from django.http import HttpResponse
 
 
 def home(request):
@@ -37,4 +38,17 @@ def details(request, id):
 def contact(request):
     projects = Projects.objects.all()
     title ="Portfolio"
-    return render (request, 'all-projects/contact.html', {'title':title})
+    form = ContactForm()
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = f'Message from {form.cleaned_data["name"]}'
+            message = form.cleaned_data["message"]
+            sender = form.cleaned_data["email"]
+            recipients = ['alexbarasa0723@gmail.com']
+            try:
+                send_mail(subject, message, sender, recipients, fail_silently=False)
+            except BadHeaderError:
+                return HttpResponse ('Invalid Header Found')
+            return HttpResponse('Success... Your Email Sent')
+    return render (request, 'all-projects/contactform.html', {'form':form})
