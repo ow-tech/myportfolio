@@ -12,7 +12,7 @@ def home(request):
 
 def about(request):
     title ="About"
-    return render( request,"all-projects/about.html",{"title":title,})
+    return render( request,"all-projects/home.html",{"title":title,})
 
 def portfolio(request):
     projects = Projects.objects.all()
@@ -21,7 +21,7 @@ def portfolio(request):
         'titile':portfolio
     }
     title ="Portfolio"
-    return render (request, 'all-projects/portfolio.html', context)
+    return render (request, 'all-projects/home.html', context)
 
 def details(request, id):
     projects = get_object_or_404(Projects, id=id)
@@ -51,4 +51,4 @@ def contact(request):
             except BadHeaderError:
                 return HttpResponse ('Invalid Header Found')
             return HttpResponse('Success... Your Email Sent')
-    return render (request, 'all-projects/contactform.html', {'form':form})
+    return render (request, 'all-projects/home.html', {'form':form})
