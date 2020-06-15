@@ -1,20 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
-
-#menu{
-    height:800px;
-    background-image: url(https://bit.ly/3e5LJwF);
-    background-size: cover;
-    opacity: 0.7;
+body{
+    padding:0;
+    margin: 0;
+}
+#menu {
+    /* height:800px; */
+    /* width: 1585px; */
+    height:100vh;
+    width:100%;
+    opacity: 0.8;
+    background-image: url('https://bit.ly/3e5LJwF');
+    /* background-size: contain; */
 }
 nav{
-    position:fixed;
+    position: absolute;
     display:flex;
     justify-content: space-between;
     align-items: center;
     transition: 0.6s;
-    /* padding:40px 100px; */
-    /* background-color: darkgray; */
 }
 nav .logo{
     position:relative;
@@ -45,23 +49,30 @@ nav ul li a{
     font-weight: 500px;
     transition: 0.6s;
 }
-nav ul li :hover{
-    /* position: relative; */
-    border:2px solid white;
-    /* border-bottom: 2px solid white; */
-    border-radius: 10px;
+.line{
+    width:120px;
+    height:3px;
+    background-color: #fff;
 }
+nav ul li :hover{
+    position: relative;
+    border-bottom:2px solid white;
+
+} 
 nav ul li a:hover{
-    color:blueviolet;
+    color:white;
 }
 
 .bg-dark{
+    transition: 1s ease;
     background:transparent !important;
 }
-
+.bg-dark.scolled{
+    background: rgb(100, 23, 163) !important;
+    position: fixed;
+}
 .jumbotron{
     margin-top: 40px;
-    /* padding: 35px; */
 }
 .jumbotron img{
     height: 250px;
@@ -100,4 +111,7 @@ nav ul li a:hover{
 }
 .margintop{
     margin-top: 30px;
+}
+.top{
+    margin-bottom: 10%;
 }
