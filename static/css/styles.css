@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+#menu{
+    height:800px;
+    background-image: url(https://bit.ly/3e5LJwF);
+    background-size: cover;
+    opacity: 0.7;
+}
 nav{
     position:fixed;
     display:flex;
@@ -7,7 +14,7 @@ nav{
     align-items: center;
     transition: 0.6s;
     /* padding:40px 100px; */
-    background-color: darkgray;
+    /* background-color: darkgray; */
 }
 nav .logo{
     position:relative;
@@ -28,19 +35,28 @@ nav ul {
 nav ul li{
     position: relative;
     list-style: none;
-    padding: 10px;
-}
-nav ul li :hover{
-    position: relative;
-    border-left:2px solid white;
-    border-bottom: 2px solid white;
+    padding: 1px;
 }
 nav ul li a{
+    color: white;
     margin:0 15px;
     text-decoration: none;
     letter-spacing: 2px;
     font-weight: 500px;
     transition: 0.6s;
+}
+nav ul li :hover{
+    /* position: relative; */
+    border:2px solid white;
+    /* border-bottom: 2px solid white; */
+    border-radius: 10px;
+}
+nav ul li a:hover{
+    color:blueviolet;
+}
+
+.bg-dark{
+    background:transparent !important;
 }
 
 .jumbotron{
