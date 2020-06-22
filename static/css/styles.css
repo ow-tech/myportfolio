@@ -10,8 +10,10 @@ body{
     height:100vh;
     width:100%;
     opacity: 0.8;
-    background-image: url('https://bit.ly/3e5LJwF');
-    /* background-size: contain; */
+    /* background-image: image('images/duty.jpeg'); */
+    background-image: url('https://bit.ly/37QETZw');
+    background-size: contain;
+    /* background-repeat: no-repeat; */
 }
 nav{
     position: absolute;
