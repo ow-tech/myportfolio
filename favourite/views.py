@@ -8,10 +8,16 @@ from django.http import HttpResponse
 
 def home(request):
     title ="Home"
-    return render( request,"all-projects/home.html",{"title":title,})
+    projects = Projects.objects.all()
+    context = {
+        'projects':projects,
+        'titile':title,
+    }
+    return render( request,"all-projects/home.html", context)
 
 def about(request):
     title ="About"
+
     return render( request,"all-projects/home.html",{"title":title,})
 
 def portfolio(request):
