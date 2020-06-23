@@ -4,7 +4,8 @@
 {% block content %}
 {{block.super}}
 <div class="top"></div>
-    <div class="row" id="home">
+<p class='margintop' id='home'></p>
+    <div class="row">
         <div class="col-md-4">
             <div class="jumbotron" >
                 <div class='profile'>
@@ -33,8 +34,10 @@
             </div>
         </div>
     </div>
+    <hr>
+    <p class='margintop'id="about"></p>
     <!-- About section/Page -->
-    <div class="row" id="about">
+    <div class="row" >
         <div class="col-md-4">
             <div class="jumbotron" >
                 <div class='description'>
@@ -45,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <div class ="col-md-8 img">
+        <div class ="col-md-8 img ">
             <div class="jumbotron img">
                 <h4>Skilled In</h4>
                 <hr>
@@ -67,10 +70,11 @@
             </div>
         </div>
     </div>
+    <hr class="">
     <!-- Portfolio section/page -->
-    <div class='margintop' id='portfolio'>
-        
-        <div class="row">
+    <p class='margintop'id='portfolio'></p>
+    <div class='margintop' >
+        <div class="row margintop">
             {% for project in projects %}
                 <div class="col-md-4">
                 <!-- Card -->
@@ -103,9 +107,10 @@
   
     </div>
     <!-- Contact section/page -->
+    <p class='margintop'id='portfolio'></p>
     <div class="row" id="contact">
         <div class='col-md-5'>
-            <div class='jumbotron'>
+            <div class='jumbotron marginbottom'>
                 <h5>Get In Touch</h5>
                 <hr>
                 <p>If you have any concern or want to work with me, please feel free to contact me by leaving a message here. Or reaching out to me through:</p>
