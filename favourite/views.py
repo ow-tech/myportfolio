@@ -9,9 +9,23 @@ from django.http import HttpResponse
 def home(request):
     title ="Home"
     projects = Projects.objects.all()
+    form = ContactForm()
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = f'Message from {form.cleaned_data["name"]}'
+            message = form.cleaned_data["message"]
+            sender = form.cleaned_data["email"]
+            recipients = ['alexbarasa0723@gmail.com']
+            try:
+                send_mail(subject, message, sender, recipients, fail_silently=False)
+            except BadHeaderError:
+                return HttpResponse ('Invalid Header Found')
+            return HttpResponse('Success... Your Email Sent')
     context = {
         'projects':projects,
         'titile':title,
+        'form':form,
     }
     return render( request,"all-projects/home.html", context)
 
