@@ -1,59 +1,106 @@
-{% extends 'all-projects/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-{% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class='jumbotron'>
-                <div class='center'>
-                    <h5 >more on {{projects.project_name}}</h6>
-                </div>
-                <hr>
-                <div>
-                    <h6>Description</h6>
-                    <p class="text-muted" >{{ projects.project_idea}}</p>
-                </div>
-                <a  href="{{projects.project_github_link_link}}" class="btn btn-light-blue btn-md" target='_blank'>GitHub Link</a>
-                <a  href="{{projects.project_deployed_link}}" class="btn btn-light-blue btn-md" target='_blank'>Live Link</a>
-            
-            </div>
+  <linK rel='stylesheet' type="text/css" href='{% static "css/styles.css" %}'>
+
+	{% if title %}
+		<title>Alex Portfolio - {{title}}</title>
+  {% else %}
+		<title> Alex Portfolio </title>
+  {% endif %}
+
+</head>
+<body>
+    <div  clas='' id='menu'></div>
+	<!-- <img src='https://bit.ly/3e5LJwF'> -->
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand logo" href="{% url 'home'%}">Alex Portfolio</a>
+			</div>
+			<ul>
+				<li class="nav-item active">
+					<a class="nav-link"  href="{% url 'home'%}">Home <span class="sr-only">(current)</span></a>
+				</li>
+			</ul>
+		</div>
+		<div class="box">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        <div class="col-md-6">
-            <div class='jumbotron'>
-                            <!--Carousel Wrapper-->
-                <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
-                    <!--Indicators-->
-                    <ol class="carousel-indicators">
-                    {% for p in project_disc %}
-                        <li data-target="#carousel-example-1z" data-slide-to="{forloop.counter0}" class="{% if forloop.counter0 == 0 %} active {% endif %}"></li>
-                    {% endfor %}
-                    </ol>
-                    <!--/.Indicators-->
-                    <!--Slides-->
-                    
-                    <div class="carousel-inner" role="listbox">
-                        {% for p in project_disc%}
-                        <!--First slide-->
-                        <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
-                            <img class="d-block w-100" src="{{ p.project_images.url}}"
-                            alt="First slide">
+	</nav>
+
+    <div class='container'>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class='jumbotron'>
+                        <div class='center'>
+                            <h5 >more on {{projects.project_name}}</h6>
                         </div>
-                        {% endfor %}
-                        <!--Controls-->
-                        <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    <!--/.Controls-->
+                        <hr>
+                        <div>
+                            <h6>Description</h6>
+                            <p class="text-muted" >{{ projects.project_idea}}</p>
+                        </div>
+                        <a  href="{{projects.project_github_link_link}}" class="btn btn-light-blue btn-md" target='_blank'>GitHub Link</a>
+                        <a  href="{{projects.project_deployed_link}}" class="btn btn-light-blue btn-md" target='_blank'>Live Link</a>
+                    
                     </div>
-                    <!--/.Carousel Wrapper-->
+                </div>
+                <div class="col-md-6">
+                    <div class='jumbotron'>
+                                    <!--Carousel Wrapper-->
+                        <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+                            <!--Indicators-->
+                            <ol class="carousel-indicators">
+                            {% for p in project_disc %}
+                                <li data-target="#carousel-example-1z" data-slide-to="{forloop.counter0}" class="{% if forloop.counter0 == 0 %} active {% endif %}"></li>
+                            {% endfor %}
+                            </ol>
+                            <!--/.Indicators-->
+                            <!--Slides-->
+                            
+                            <div class="carousel-inner" role="listbox">
+                                {% for p in project_disc%}
+                                <!--First slide-->
+                                <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
+                                    <img class="d-block w-100" src="{{ p.project_images.url}}"
+                                    alt="First slide">
+                                </div>
+                                {% endfor %}
+                                <!--Controls-->
+                                <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            <!--/.Controls-->
+                            </div>
+                            <!--/.Carousel Wrapper-->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-{% endblock %}
+	</div>
+	{% block scripts %}
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="{% static 'js/scripts.js' %}"></script>
+	{% endblock %}
+</body>
+</html>
