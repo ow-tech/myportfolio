@@ -21,3 +21,10 @@ class Project_disc(models.Model):
 
     def __str__(self):
         return self.projects.project_name
+# class My_profile(models.Model):
+#     my_profile_name = models.CharField(max_length=50, default='empty')
+#     my_image = CloudinaryField('image', default='image')
+    
+    
+#     def __str__(self):
+#          return '{}'.format(self.my_profile_name)
