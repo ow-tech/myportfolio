@@ -144,11 +144,9 @@ MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 #CLOUDINARY os.environ.getURATIONS
-cloudinary.os.environ.get( 
-     api_key = os.environ.get("API_KEY"), 
-  api_secret = os.environ.get("API_SECRET"),
-  cloud_name = os.environ.get("CLOUD_NAME")
-)
+api_key = os.environ.get("API_KEY"), 
+api_secret = os.environ.get("API_SECRET"),
+cloud_name = os.environ.get("CLOUD_NAME")
 
 
 EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
