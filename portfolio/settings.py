@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 import django_heroku
 import dj_database_url
-from decouple import config, Csv
+# from decouple import config, Csv
 import cloudinary
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -24,10 +24,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY =config('SECRET_KEY')
+SECRET_KEY =os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =config('DEBUG')
+DEBUG =os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = ['mipotfolio.herokuapp.com','127.0.0.1']
 
@@ -35,7 +35,7 @@ ALLOWED_HOSTS = ['mipotfolio.herokuapp.com','127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'favourite.apps.FavouriteConfig',
+    'favourite.apps.Favouriteos.environ.get',
     'bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -89,10 +89,10 @@ DATABASES = {
         'NAME': 'myportfolio',
         'USER': 'alex',
         'PASSWORD': 'alex',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
     }
 }
 
@@ -143,20 +143,20 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
-#CLOUDINARY CONFIGURATIONS
-cloudinary.config( 
-  cloud_name = config("CLOUD_NAME"), 
-  api_key = config("API_KEY"), 
-  api_secret = config("API_SECRET") 
+#CLOUDINARY os.environ.getURATIONS
+cloudinary.os.environ.get( 
+  cloud_name = os.environ.get("CLOUD_NAME"), 
+  api_key = os.environ.get("API_KEY"), 
+  api_secret = os.environ.get("API_SECRET") 
 )
 
 
-EMAIL_USE_TLS = config('EMAIL_USE_TLS')
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT')
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_PORT = os.environ.get('EMAIL_PORT')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND')
 # SENDGRID_API_KEY= os.environ.get('SENDGRID_API_KEY')
 # SENDGRID_SANDBOX_MODE_IN_DEBUG=False
 # EMAIL_PORT = 587
@@ -166,5 +166,5 @@ EMAIL_BACKEND = config('EMAIL_BACKEND')
 # EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_API_KEY')
 
 
-# Configure Django App for Heroku.
+# os.environ.geture Django App for Heroku.
 django_heroku.settings(locals())
